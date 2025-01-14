@@ -37,7 +37,7 @@ This project controls an RGB LED using a joystick module and multiple buttons. D
 | RGB LED                   | 1            | Common cathode RGB LED                         |
 | Joystick Module           | 1            | Module with X, Y axes, and a button            |
 | Push Button               | 2            | Additional buttons for mode and state control  |
-| Resistors (10kΩ)          | 2            | Pull-down resistors for the buttons            |
+| Resistors (330Ω)          | 3            | Pull-down resistors for the buttons            |
 | Jumper Wires              | As needed    | For connections                                |
 | Breadboard                | 1            | For prototyping the circuit                    |
 
