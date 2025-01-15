@@ -1,126 +1,141 @@
+# RGB LED Control with Joystick and Buttons
 
-# **RGB LED Control with Joystick and Buttons**
-
-This project controls an RGB LED using a joystick module and multiple buttons. Depending on the selected scenario, the joystick and buttons provide various ways to manipulate the LED's behavior, including toggling states, timed activation, and dynamic color spectrum control.
-
----
-
-## **Features**
-
-1. **Scenario 1**:
-   - The RGB LED turns **ON** while the joystick button is held down.
-   - The LED turns **OFF** immediately upon release.
-
-2. **Scenario 2**:
-   - The RGB LED turns **ON** when the joystick button is pressed.
-   - The LED stays **ON** for **5 seconds** after the button is released.
-
-3. **Scenario 3**:
-   - The RGB LED toggles **ON** or **OFF** with each press of the joystick button.
-   - A single press toggles the state.
-
-4. **Scenario 4**:
-   - The RGB LED turns **ON** when the joystick button is pressed.
-   - The LED stays **ON** until a secondary button is pressed.
-
-5. **Scenario 5**:
-   - The joystick's **X-axis** controls the color spectrum (Hue), allowing you to scroll through colors.
-   - The **Y-axis** adjusts the brightness, requiring a movement threshold of ±10 from the neutral position for changes.
+This project demonstrates how to control an RGB LED using a joystick module and buttons. It supports five unique scenarios that allow users to interact with the LED in different ways, including toggling states, adjusting color, and controlling brightness. The joystick's X and Y axes manage the color and brightness, while the joystick button and additional scenario buttons determine the LED's behavior.
 
 ---
 
-## **Required Components**
+## Features
+
+### Scenario 1: Joystick Button ON/OFF
+- The RGB LED turns **ON** when the joystick button is pressed.
+- The LED turns **OFF** immediately when the button is released.
+
+### Scenario 2: LED with 5-Second Delay
+- The RGB LED turns **ON** when the joystick button is pressed.
+- The LED remains **ON** for **5 seconds** after the button is released.
+
+### Scenario 3: Toggle LED
+- The RGB LED toggles **ON/OFF** with each press of the joystick button.
+
+### Scenario 4: Joystick Button ON, Secondary Button OFF
+- The RGB LED turns **ON** when the joystick button is pressed.
+- The LED stays **ON** until the secondary button is pressed.
+
+### Scenario 5: Dynamic Color and Brightness Control
+- The joystick’s **X-axis** adjusts the hue (color spectrum).
+- The **Y-axis** adjusts the LED brightness, with changes only applied if the joystick movement exceeds a threshold.
+
+---
+
+## Required Components
 
 | **Component**            | **Quantity** | **Description**                                  |
-|---------------------------|--------------|-------------------------------------------------|
-| Arduino Uno or Equivalent | 1            | Microcontroller for running the code           |
-| RGB LED                   | 1            | Common cathode RGB LED                         |
-| Joystick Module           | 1            | Module with X, Y axes, and a button            |
-| Push Button               | 2            | Additional buttons for mode and state control  |
-| Resistors (330Ω)          | 3            | Pull-down resistors for the buttons            |
-| Jumper Wires              | As needed    | For connections                                |
-| Breadboard                | 1            | For prototyping the circuit                    |
+|--------------------------|--------------|--------------------------------------------------|
+| Arduino Uno or Equivalent | 1            | Microcontroller to run the code                  |
+| RGB LED                   | 1            | Common cathode RGB LED                          |
+| Joystick Module           | 1            | Joystick with X, Y axes and a button            |
+| Push Button               | 2            | Additional buttons for scenario and state control|
+| Resistors (330Ω)          | 3            | Pull-down resistors for the buttons             |
+| Jumper Wires              | As needed    | For connections                                 |
+| Breadboard                | 1            | For prototyping                                 |
 
 ---
 
-## **Circuit Diagram**
+## Circuit Diagram
 
-1. **RGB LED**:
-   - **R (Red)** -> Arduino pin **3**.
-   - **G (Green)** -> Arduino pin **5**.
-   - **B (Blue)** -> Arduino pin **6**.
-   - **Cathode** -> Ground (GND).
+### RGB LED Connections
+- **Red Pin (R)** -> Arduino Pin **3**
+- **Green Pin (G)** -> Arduino Pin **5**
+- **Blue Pin (B)** -> Arduino Pin **6**
+- **Cathode (GND)** -> Ground (GND)
 
-2. **Joystick**:
-   - **VCC** -> 5V.
-   - **GND** -> GND.
-   - **VRx (X-axis)** -> Analog pin **A0**.
-   - **VRy (Y-axis)** -> Analog pin **A1**.
-   - **SW (Button)** -> Digital pin **2**.
+### Joystick Connections
+- **VCC** -> 5V
+- **GND** -> GND
+- **X-axis (VRx)** -> Analog Pin **A0**
+- **Y-axis (VRy)** -> Analog Pin **A1**
+- **Button (SW)** -> Digital Pin **2**
 
-3. **Buttons**:
-   - **Scenario Button**:
-     - One pin -> Digital pin **4**.
-     - Other pin -> GND with a pull-up or pull-down resistor.
-   - **Secondary Button** (for Scenario 4):
-     - One pin -> Digital pin **7**.
-     - Other pin -> GND with a pull-up or pull-down resistor.
+### Button Connections
+- **Scenario Button** -> Digital Pin **4**
+- **Secondary Button** -> Digital Pin **7**
 
 ---
 
-## **Installation and Usage**
+## Installation and Usage
 
-1. **Upload the Code**:
-   - Open the Arduino IDE and upload the provided sketch to your Arduino board.
+### 1. Upload the Code
+   - Open the Arduino IDE.
+   - Upload the provided sketch to your Arduino board.
 
-2. **Set Up the Circuit**:
-   - Connect all components as per the circuit diagram.
+### 2. Set Up the Circuit
+   - Connect all components as shown in the circuit diagram.
 
-3. **Control the Scenarios**:
-   - Use the **scenario button** (pin 4) to cycle through the five scenarios.
-   - Observe the behavior of the RGB LED based on the joystick and button interactions.
+### 3. Changing the Scenarios
+   - Press the **scenario button** (pin 4) to cycle through the five scenarios.
+   - Watch the RGB LED’s behavior change based on the joystick and button inputs.
 
-4. **Monitor via Serial**:
-   - Open the Serial Monitor (baud rate: 9600) to debug and track the system's status, including scenario changes, joystick input, and RGB values.
-
----
-
-## **How It Works**
-
-1. **Scenario Selection**:
-   - Press the **scenario button** (pin 4) to incrementally cycle through the five scenarios.
-   - The current scenario number is printed to the Serial Monitor.
-
-2. **Joystick Button**:
-   - The **joystick button** (pin 2) is the primary trigger for controlling the LED state in most scenarios.
-
-3. **Secondary Button**:
-   - The **secondary button** (pin 7) is used exclusively in Scenario 4 to turn off the LED.
-
-4. **Dynamic Color Control**:
-   - In **Scenario 5**, the joystick's X and Y axes control the color and brightness:
-     - **X-axis**: Changes the color spectrum (Hue).
-     - **Y-axis**: Adjusts brightness, with changes only applied if the movement exceeds a threshold of ±10 from the neutral position.
+### 4. Monitoring via Serial
+   - Open the Serial Monitor (baud rate: 9600) to track the current scenario, LED state, and joystick values.
 
 ---
 
-## **Debugging**
+## How It Works
 
-- Use the **Serial Monitor** for real-time updates:
-  - Scenario changes: `"Scenario changed to: X"`
-  - LED state: `"Scenario: X | LED State: ON"`
-  - Joystick input and RGB values (Scenario 5): `"Scenario 5 | Hue: 120 | Brightness: 200 | RGB: (0, 255, 100)"`
+### Scenario Selection
+- Press the **scenario button** to cycle through the scenarios (1 to 5). The active scenario will be displayed in the Serial Monitor.
+
+### Joystick Button
+- The **joystick button** (pin 2) triggers actions in most scenarios (e.g., turning the LED ON/OFF).
+
+### Secondary Button
+- The **secondary button** (pin 7) is used in **Scenario 4** to turn off the LED.
+
+### Color Control (Scenario 5)
+- The **X-axis** of the joystick adjusts the hue (color spectrum).
+- The **Y-axis** of the joystick controls the LED brightness, adjusting only if the movement exceeds the defined threshold.
 
 ---
 
-## **Further Customizations**
+## Debugging and Monitoring
 
-- Adjust the joystick neutral values (`neutralX` and `neutralY`) in the code if they differ based on your module.
-- Modify the debounce delay (`debounceDelay`) to fine-tune button responsiveness.
-- Experiment with the mapping ranges for Scenario 5 to customize the color spectrum.
+- Open the **Serial Monitor** to observe real-time updates:
+  - **Scenario Change**: `"Scenario changed to: X"`
+  - **LED State**: `"Scenario: X | LED State: ON"`
+  - **Joystick Input and RGB Values (Scenario 5)**: `"Scenario 5 | Hue: 120 | Brightness: 200 | RGB: (0, 255, 100)"`
 
 ---
 
-## **License**
+## Customization Options
 
-This project is licensed under the MIT License. Feel free to use and modify the code as needed.
+- **Joystick Neutral Values**: Adjust `neutralX` and `neutralY` if your joystick module has different neutral values.
+- **Debounce Delay**: Fine-tune button responsiveness by adjusting the `debounceDelay`.
+- **Color Spectrum**: Customize the hue range in **Scenario 5** to fit your needs.
+
+---
+
+## Contributors
+
+- **Neeeeeeeil**
+- **Nacho**
+- **Santosh**
+
+If you'd like to contribute, feel free to submit a pull request!
+
+---
+
+## References
+
+- **Arduino Documentation**:  
+  [https://www.arduino.cc/en/Reference/HomePage](https://www.arduino.cc/en/Reference/HomePage)  
+  Official documentation for Arduino functions, libraries, and best practices.
+
+- **Joystick Module Pinout and Usage**:  
+  [https://www.electronicwings.com/arduino/joystick-module](https://www.electronicwings.com/arduino/joystick-module)  
+  Guide on how to connect and use a joystick module with Arduino.
+
+## License
+
+This project is licensed under the **MIT License**. Feel free to use and modify the code as needed.
+
+---
