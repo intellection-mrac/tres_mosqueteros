@@ -41,7 +41,7 @@ This project demonstrates how to control an RGB LED using a joystick module and 
 
 ---
 
-## Circuit Diagram
+## Wiring
 
 ### RGB LED Connections
 - **Red Pin (R)** -> Arduino Pin **3**
