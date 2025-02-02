@@ -2,6 +2,8 @@
 
 This project uses the **Adafruit MPU6050** sensor along with an **ESP32/ESP8266** (using `WiFi.h`) to create a simple web server that displays accelerometer, gyroscope, and temperature data in JSON format. The project also includes an RGB LED that visually indicates the status of the device: red for failure, green for normal operation, and blue when idle or when there is no client connection.
 
+---
+
 ## Features
 
 - Connects to Wi-Fi network.
@@ -12,6 +14,8 @@ This project uses the **Adafruit MPU6050** sensor along with an **ESP32/ESP8266*
   - **Green**: Successful Wi-Fi connection and stable sensor values.
   - **Blue**: No client connection or idle mode.
 - Provides a timestamp with the device's IP address in the Serial Monitor every second.
+
+---
 
 ## Requirements
 
@@ -26,6 +30,8 @@ This project uses the **Adafruit MPU6050** sensor along with an **ESP32/ESP8266*
   - `Adafruit_Sensor.h` (Adafruit sensor framework)
   - `WiFi.h` (ESP32/ESP8266 Wi-Fi support)
   - `ArduinoJson.h` (JSON parsing and generation)
+
+---
 
 ## Setup Instructions
 
@@ -101,6 +107,7 @@ The server will respond with JSON data from the MPU6050 sensor, looking like thi
   "temp": 25.2
 }
 ```
+---
 
 ## Troubleshooting
 
@@ -108,6 +115,8 @@ The server will respond with JSON data from the MPU6050 sensor, looking like thi
   - No Data on Web Server: Ensure the device is connected to your Wi-Fi and that your browser is pointing to the correct IP address.
   - Sensor Not Detected: If the sensor is not found during initialization, ensure that the connections (SDA and SCL) are correct, and check that the sensor is powered correctly.
   - No Response from Web Server: Check that the device is running, connected to the Wi-Fi, and that the IP address is correctly entered into the browser.
+
+---
 
 ## Code Explanation
 
@@ -122,6 +131,8 @@ The server will respond with JSON data from the MPU6050 sensor, looking like thi
         Green: Successful Wi-Fi connection and stable sensor readings.
         Blue: No client connected or idle mode.
 
+---
+
 ## Contributors
 
 - **Neeeeeeeil**
@@ -130,6 +141,10 @@ The server will respond with JSON data from the MPU6050 sensor, looking like thi
 
 If you'd like to contribute, feel free to submit a pull reque
 
+---
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details
+
+---
