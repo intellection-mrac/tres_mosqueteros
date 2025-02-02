@@ -122,6 +122,14 @@ The server will respond with JSON data from the MPU6050 sensor, looking like thi
         Green: Successful Wi-Fi connection and stable sensor readings.
         Blue: No client connected or idle mode.
 
+## Contributors
+
+- **Neeeeeeeil**
+- **Nacho**
+- **Santosh**
+
+If you'd like to contribute, feel free to submit a pull reque
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details
