@@ -60,10 +60,10 @@ const char* password = "your-wifi-password";
 
 ### 4. Upload the Code
 
-    - Open the Arduino IDE.
-    - Select your ESP32/ESP8266 board in the Tools > Board menu.
-    - Choose the correct COM port under Tools > Port.
-    - Click the Upload button (right arrow icon) to upload the code to your board.
+  - Open the Arduino IDE.
+  - Select your ESP32/ESP8266 board in the Tools > Board menu.
+  - Choose the correct COM port under Tools > Port.
+  - Click the Upload button (right arrow icon) to upload the code to your board.
 
 Once the upload is complete, the ESP32/ESP8266 will restart, and the serial monitor will begin displaying the connection process.
 
@@ -71,16 +71,16 @@ Once the upload is complete, the ESP32/ESP8266 will restart, and the serial moni
 
 Open the Serial Monitor in the Arduino IDE:
 
-    - Go to Tools > Serial Monitor or press Ctrl + Shift + M.
-    - Set the baud rate to 115200.
+  - Go to Tools > Serial Monitor or press Ctrl + Shift + M.
+  - Set the baud rate to 115200.
 
 You will see the following information:
 
-    - Wi-Fi connection status.
-    - The device's IP address once connected to Wi-Fi.
-    - A timestamp with the IP address every second.
+  - Wi-Fi connection status.
+  - The device's IP address once connected to Wi-Fi.
+  - A timestamp with the IP address every second.
 
-6. Access the Web Server
+### 6. Access the Web Server
 
 Once the device is connected to Wi-Fi, open a web browser and enter the IP address displayed in the Serial Monitor. For example:
 
@@ -104,20 +104,20 @@ The server will respond with JSON data from the MPU6050 sensor, looking like thi
 
 ## Troubleshooting
 
-    - Failed to Connect to Wi-Fi: If the device cannot connect to Wi-Fi, the red LED will light up. Check your SSID and password for accuracy.
-    - No Data on Web Server: Ensure the device is connected to your Wi-Fi and that your browser is pointing to the correct IP address.
-    - Sensor Not Detected: If the sensor is not found during initialization, ensure that the connections (SDA and SCL) are correct, and check that the sensor is powered correctly.
-    - No Response from Web Server: Check that the device is running, connected to the Wi-Fi, and that the IP address is correctly entered into the browser.
+  - Failed to Connect to Wi-Fi: If the device cannot connect to Wi-Fi, the red LED will light up. Check your SSID and password for accuracy.
+  - No Data on Web Server: Ensure the device is connected to your Wi-Fi and that your browser is pointing to the correct IP address.
+  - Sensor Not Detected: If the sensor is not found during initialization, ensure that the connections (SDA and SCL) are correct, and check that the sensor is powered correctly.
+  - No Response from Web Server: Check that the device is running, connected to the Wi-Fi, and that the IP address is correctly entered into the browser.
 
 ## Code Explanation
 
-    - Wi-Fi Setup: The device attempts to connect to the specified Wi-Fi network. If it fails, the red LED will light up, and the device will halt.
+  - Wi-Fi Setup: The device attempts to connect to the specified Wi-Fi network. If it fails, the red LED will light up, and the device will halt.
 
-    - MPU6050 Sensor Initialization: The sensor is initialized with specific accelerometer and gyroscope ranges and filter bandwidth. If the sensor is not detected, an error message is displayed in the Serial Monitor.
+  - MPU6050 Sensor Initialization: The sensor is initialized with specific accelerometer and gyroscope ranges and filter bandwidth. If the sensor is not detected, an error message is displayed in the Serial Monitor.
 
-    - Web Server: A simple web server listens for incoming client requests. Upon connection, the server reads the sensor data, creates a JSON object, and sends it to the client.
+  - Web Server: A simple web server listens for incoming client requests. Upon connection, the server reads the sensor data, creates a JSON object, and sends it to the client.
 
-    - RGB LED: The RGB LED provides visual feedback on the device’s status:
+  - RGB LED: The RGB LED provides visual feedback on the device’s status:
         Red: Wi-Fi connection failed or significant sensor motion detected.
         Green: Successful Wi-Fi connection and stable sensor readings.
         Blue: No client connected or idle mode.
