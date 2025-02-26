@@ -7,7 +7,7 @@
 
 ---
 
-The **UR10e Industrial Reconstruction Controller** is a robust ROS node that provides precise control over an industrial 3D scanning process using a UR10e robot. By monitoring IO feedback from the robot, this node automatically triggers the start and stop of a 3D reconstruction process. It is built on top of the MRAC UR Perception framework, which leverages a Dockerized ROS workflow to ensure reproducibility, ease of deployment, and GPU acceleration for processing-intensive tasks.This documentation offers an exhaustive overview of the node’s design, hardware/software dependencies, Docker-based development setup, code execution flow, and troubleshooting recommendations.
+The **UR10e Industrial Reconstruction Controller** is a robust ROS node that provides precise control over an industrial 3D scanning process using a UR10e robot. By monitoring IO feedback from the robot, this node automatically triggers the start and stop of a 3D reconstruction process. It is built on top of the MRAC UR Perception framework, which leverages a Dockerized ROS workflow to ensure reproducibility, ease of deployment, and GPU acceleration for processing-intensive tasks. This documentation offers an exhaustive overview of the node’s design, hardware/software dependencies, Docker-based development setup, code execution flow, and troubleshooting recommendations.
 
 ---
 
