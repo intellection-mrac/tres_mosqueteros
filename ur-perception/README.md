@@ -574,8 +574,8 @@ Post-processing
 
 **Best Use Cases**
 
-Organic structures
-Closed surfaces with varying point density
+Organic structures. 
+Closed surfaces with varying point density. 
 
 **Example Usage**
 
@@ -605,8 +605,8 @@ Smoothing
 
 **Best Use Cases**
 
-Structured models with edge details
-Uniform point cloud density
+Structured models with edge details. 
+Uniform point cloud density. 
 
 **Example Usage**
 
@@ -636,8 +636,8 @@ Post-processing
 
 **Best Use Cases**
 
-Smooth and watertight meshes.
-High-detail reconstructions.
+Smooth and watertight meshes. 
+High-detail reconstructions. 
 
 **Example Usage**
 
