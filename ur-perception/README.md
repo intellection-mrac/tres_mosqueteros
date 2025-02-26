@@ -726,12 +726,7 @@ o3d.visualization.draw_geometries([mesh])
 
 ### Integrating with Grasshopper:
 
-<<<<<<< HEAD
-Use the Python script above inside Grasshopper script component to import a sample .ply file for processing inside rhino's script component.
-=======
-Use the Python script above inside Grasshopper script component to process .ply files inside rhino's script component
-
-
+Use the Python script above inside Grasshopper script component to process .ply files inside rhino's script component:
 
 ```plaintext
 +---------------------+          +-----------------+      +-------------------+
