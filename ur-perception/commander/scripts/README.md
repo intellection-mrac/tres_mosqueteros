@@ -359,7 +359,7 @@ For further details, academic inquiries, or collaboration opportunities, please 
 
 ## Final Remarks
 
-The **UR10e Industrial Reconstruction Controller** integrates cutting-edge robotics, computer vision, and 3D scanning within an industrial context. With its Dockerized MRAC UR Perception framework, this node supports reproducible and scalable deployments, serving as a robust platform for academic research and industrial automation. We hope this documentation helps you to fully leverage your UR10e robot for advanced 3D reconstruction applications.
+The **UR10e Industrial Reconstruction Controller** integrates robotics, computer vision, and 3D scanning within an industrial context. With its Dockerized MRAC UR Perception framework, this node supports reproducible and scalable deployments, serving as a robust platform for academic research and industrial automation. We hope this documentation helps you to fully leverage your UR10e robot for advanced 3D reconstruction applications.
 
 ---
 
