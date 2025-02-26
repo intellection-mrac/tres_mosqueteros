@@ -551,11 +551,48 @@ After performing mesh reconstruction, validate the result visually and check the
 
 ---
 
+### Virtual Environment Setup in Grasshopper
+To ensure modularity and reproducibility, this project uses a virtual environment directly in Grasshopper.
+
+**Automatic Virtual Environment Creation**
+Inside Grasshopper’s Python component, simply specify the virtual environment in the script:
+
+```python
+#! python 3
+# venv : testOpen3D
+# r: open3d
+import open3d as o3d
+```
+
+This automatically creates and manages a virtual environment within Grasshopper, making the workflow faster and more efficient.
+
+**Installing Dependencies in Grasshopper**
+The necessary libraries are installed inside the Grasshopper Python component:
+
+```python
+#! python 3
+# venv : testOpen3D
+# r: open3d
+# r: numpy
+# r: scipy
+# r: rhino3dm
+import open3d as o3d
+import numpy as np
+import scipy
+import Rhino.Geometry as rg
+```
+
+This ensures that all dependencies remain isolated, avoiding conflicts with the system-wide Python environment.
+
+---
+
+### **Mesh reconstruction techniques**
+
 This section outlines three advanced mesh reconstruction techniques using Open3D, each tailored to specific types of point clouds.
 
 ---
 
-### **Alpha Shape Reconstruction** 
+### Alpha Shape Reconstruction
 
 	Description:
 	The Alpha Shape algorithm is ideal for reconstructing complex,organic shapes from point clouds. It works by triangulating the point cloud and adapting the shape based on an alpha parameter.
@@ -585,7 +622,7 @@ mesh_o3d = o3d.geometry.TriangleMesh.create_from_point_cloud_alpha_shape(point_c
 
 ---
 
-### **Ball Pivoting Algorithm (BPA)**
+### Ball Pivoting Algorithm (BPA)
 
 	Description:
 	The Ball Pivoting Algorithm (BPA) is a geometry-driven method for reconstructing meshes by rolling a virtual ball over the point cloud and forming triangles where the ball intersects.
@@ -618,7 +655,7 @@ mesh_o3d = o3d.geometry.TriangleMesh.create_from_point_cloud_ball_pivoting(
 
 ---
 
-### **Poisson Surface Reconstruction**
+### Poisson Surface Reconstruction
 
 	Description:
 	Poisson Surface Reconstruction generates a smooth and watertight surface by solving an implicit function that fits the point cloud.
@@ -689,7 +726,7 @@ o3d.visualization.draw_geometries([mesh])
 
 ### Integrating with Grasshopper:
 
-Use the Python script above inside Grasshopper script component to automatically update the mesh as the robot moves, capturing new data at each step.
+Use the Python script above inside Grasshopper script component to import a sample .ply file for processing inside rhino's script component.
 
 ```plaintext
 +---------------------+          +-----------------+      +-------------------+
