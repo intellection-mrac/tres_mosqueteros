@@ -168,7 +168,7 @@ The MRAC UR Perception repository utilizes Docker to facilitate consistent and r
    Open a terminal and execute:
 
    ```
-   git clone https://github.com/your-username/MRAC-UR-Perception.git
+   git clone https://github.com/MRAC-IAAC/MRAC-UR-Perception.git
    cd MRAC-UR-Perception
    ```
 
