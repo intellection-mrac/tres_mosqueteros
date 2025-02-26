@@ -689,7 +689,7 @@ o3d.visualization.draw_geometries([mesh])
 
 ### Integrating with Grasshopper:
 
-Use the Python script above inside Grasshopper script component to automatically update the mesh as the robot moves, capturing new data at each step.
+Use the Python script above inside Grasshopper script component to process .ply files inside rhino's script component
 
 ```plaintext
 +---------------------+          +-----------------+      +-------------------+
