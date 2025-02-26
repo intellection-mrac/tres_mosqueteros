@@ -68,7 +68,7 @@ This documentation offers an exhaustive overview of the node’s design, hardwar
 
 ---
 
-The **MRAC UR Perception** system connects depth sensing cameras (ZED Camera or Azure Kinect) with the **UR10e robot** to perform advanced **robotic perception tasks**. The system enables:
+The **UR Perception** system connects depth sensing cameras (ZED Camera or Azure Kinect) with the **UR10e robot** to perform advanced **robotic perception tasks**. The system enables:
 
 - **3D Environment Mapping** using depth perception data.
 - **Robot Manipulation** with **MoveIt** integration for UR10e.
