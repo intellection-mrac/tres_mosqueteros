@@ -170,7 +170,7 @@ def main():
 
     # Subscribe to the UR signal topic.
     # The node expects messages on "/ur_signal" as a Bool indicating the signal state.
-    rospy.Subscriber("/ur_signal", Bool, signal_callback)
+    rospy.Subscriber('/ur_hardware_interface/io_states', Bool, signal_callback)
 
     rospy.loginfo("UR10e reconstruction controller node started. Listening for UR signal changes...")
     rospy.spin()  # Keep the node running until shutdown.
