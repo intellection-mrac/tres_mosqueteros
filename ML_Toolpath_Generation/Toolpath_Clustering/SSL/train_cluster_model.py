@@ -24,6 +24,8 @@ model = KMeans(n_clusters=N_CLUSTERS, random_state=42)
 model.fit(valid_points)
 
 # --- Save model ---
-os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
-joblib.dump(model, OUTPUT_PATH)
+LETTER = "A"
+os.makedirs("SSL_v2", exist_ok=True)
+joblib.dump(model, f"SSL_v2/clustering_model_{LETTER}.pkl")
+
 print(f"Model saved to {OUTPUT_PATH}")
