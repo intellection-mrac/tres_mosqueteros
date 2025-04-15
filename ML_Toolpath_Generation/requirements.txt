@@ -1,0 +1,15 @@
+# Python version
+# python==3.10
+
+# Core scientific and plotting libraries
+numpy
+matplotlib
+pillow
+
+# Machine learning
+scikit-learn
+joblib
+
+# Installation command (use this after activating your virtualenv)
+# ---------------------------------------------------------------
+# pip install -r requirements.txt

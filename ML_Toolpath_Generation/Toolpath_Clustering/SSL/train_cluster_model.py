@@ -4,15 +4,20 @@ import joblib
 import os
 
 # --- Config ---
-GRID_SIZE = 50
-N_CLUSTERS = 5
-OUTPUT_PATH = "SSL_v2/clustering_model.pkl"
+N_CLUSTERS = 3
+LETTER = "H"
 
-# --- Generate dummy training data (replace with real examples as needed) ---
-np.random.seed(42)
-all_points = np.array([(i, j) for i in range(GRID_SIZE) for j in range(GRID_SIZE)])
-mask = np.random.rand(GRID_SIZE, GRID_SIZE) < 0.1
-valid_points = all_points[mask.flatten()]
+here = os.path.dirname(__file__)
+DATASET_FOLDER = os.path.join(here, "letter_dataset")
+OUTPUT_PATH = os.path.join(here, f"SSL_v2/clustering_model_{LETTER}.pkl")
+
+# --- Load selected .npy point set ---
+points_path = os.path.join(DATASET_FOLDER, f"{LETTER}_points.npy")
+if not os.path.exists(points_path):
+    raise FileNotFoundError(f"No dataset found for letter '{LETTER}' at {points_path}")
+
+valid_points = np.load(points_path)
+print(f"Loaded {len(valid_points)} points from {points_path}")
 
 # --- Train clustering model ---
 model = KMeans(n_clusters=N_CLUSTERS, random_state=42)
