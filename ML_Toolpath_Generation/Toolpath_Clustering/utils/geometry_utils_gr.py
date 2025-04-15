@@ -1,26 +1,35 @@
 import numpy as np
 
-def compute_local_frame(points):
+def compute_local_frame(points_3d):
     """
-    Computes a local reference frame (U, V, N) from a list of 3D points.
-    Returns the transformation matrix T (world to UVN) and its inverse (UVN to world).
+    Create a local coordinate frame using PCA on 3D points.
+    Returns T (3x3) and T_inv transformation matrices.
     """
-    points = np.array(points)
-    origin = np.mean(points, axis=0)
-    u = points[1] - points[0]
-    u = u / np.linalg.norm(u)
-    normal = np.cross(u, points[2] - points[0])
-    normal = normal / np.linalg.norm(normal)
-    v = np.cross(normal, u)
+    centroid = np.mean(points_3d, axis=0)
+    centered = points_3d - centroid
+    cov = np.cov(centered.T)
 
+    eigvals, eigvecs = np.linalg.eigh(cov)
+    sorted_indices = np.argsort(eigvals)[::-1]
+    eigvecs = eigvecs[:, sorted_indices]
+
+    x_axis = eigvecs[:, 0]
+    y_axis = eigvecs[:, 1]
+    z_axis = np.cross(x_axis, y_axis)
+    if np.linalg.norm(z_axis) == 0:
+        # fallback: use default Z if collinear
+        z_axis = np.array([0, 0, 1])
+    else:
+        z_axis /= np.linalg.norm(z_axis)
+
+    R = np.vstack([x_axis, y_axis, z_axis]).T
     T = np.eye(4)
-    T[:3, 0] = u
-    T[:3, 1] = v
-    T[:3, 2] = normal
-    T[:3, 3] = origin
+    T[:3, :3] = R
+    T[:3, 3] = centroid
 
     T_inv = np.linalg.inv(T)
     return T, T_inv
+
 
 def project_to_2d(points_3d, T_inv):
     """
