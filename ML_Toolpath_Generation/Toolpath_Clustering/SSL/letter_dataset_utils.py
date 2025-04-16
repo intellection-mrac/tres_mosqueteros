@@ -32,13 +32,36 @@ def letter_to_mask(letter, image_size=100, font_size=120, font_path=None):
 def mask_to_valid_points(mask, max_points=None):
     points = np.argwhere(mask == 1)
 
-    if max_points and len(points) > max_points:
-        # Sort points for spatial uniformity (row-wise scan order)
-        points = points[np.lexsort((points[:, 1], points[:, 0]))]
-        step = len(points) // max_points
-        points = points[::step][:max_points]
+    if not max_points or len(points) <= max_points:
+        return points
 
-    return points
+    h, w = mask.shape
+    grid_size = int(np.sqrt(max_points))
+    cell_h = h // grid_size
+    cell_w = w // grid_size
+
+    selected = []
+    for i in range(grid_size):
+        for j in range(grid_size):
+            y_start = i * cell_h
+            y_end = (i + 1) * cell_h
+            x_start = j * cell_w
+            x_end = (j + 1) * cell_w
+
+            # Get points in this cell
+            cell_points = [pt for pt in points if y_start <= pt[0] < y_end and x_start <= pt[1] < x_end]
+            if cell_points:
+                # Randomly pick one point from this cell
+                selected.append(cell_points[np.random.randint(len(cell_points))])
+
+            if len(selected) >= max_points:
+                break
+        if len(selected) >= max_points:
+            break
+
+    return np.array(selected)
+
+
 
 def save_mask_as_image(mask, output_path):
     """
