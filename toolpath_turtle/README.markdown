@@ -8,7 +8,7 @@ This project demonstrates how to control ROS TurtleSim using path data generated
 - **csv_turtle.py**: A ROS node that reads path data from a CSV file and moves the turtle accordingly.
 - **turtle_plan_bridge.py**: A script that interfaces with `main_plan_ABC.py` to generate `points.csv` dynamically.
 - **main_plan_ABC.py**: A toolpath generation script within the `Toolpath_clustering` module.
-- **Docker Environment**: A containerized ROS Noetic setup for consistency and ease of use.
+- **Docker Environment**: A containerized ROS Noetic setup for consistency and ease of use (Use 'docker' path if visible / '.docker' path if hidden in local build)
 
 The project supports dynamic path generation (via `turtle_plan_bridge.py`) and static CSV mode, offering flexibility for testing and deployment.
 
