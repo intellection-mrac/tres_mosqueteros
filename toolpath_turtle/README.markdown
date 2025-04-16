@@ -1,4 +1,4 @@
-# ROS TurtleSim with CSV Path Generation
+# ROS TurtleSim with ML-Optimised CSV Path Generation
 
 This repository provides a ROS Noetic setup for controlling TurtleSim using path data generated from a custom toolpath planner. The setup uses Docker for a consistent environment, ensuring all dependencies are included without modifying core scripts. The `csv_turtle` package includes nodes to generate paths dynamically and control TurtleSim, with options for dynamic or static CSV input.
 
@@ -6,7 +6,7 @@ This repository provides a ROS Noetic setup for controlling TurtleSim using path
 
 This project demonstrates how to control ROS TurtleSim using path data generated from a custom toolpath planner. Key components include:
 - **csv_turtle.py**: A ROS node that reads path data from a CSV file and moves the turtle accordingly.
-- **turtle_plan_bridge.py**: A script that interfaces with `main_plan_ABC.py` to generate `points.csv` dynamically.
+- **turtle_plan_bridge.py**: A script that interfaces with `main_plan_ABC.py` [ML core] to generate `points.csv` dynamically.
 - **main_plan_ABC.py**: A toolpath generation script within the `Toolpath_clustering` module.
 - **Docker Environment**: A containerized ROS Noetic setup for consistency and ease of use (Use 'docker' path if visible / '.docker' path if hidden in local build)
 
@@ -45,7 +45,7 @@ The Docker image is built using the `Dockerfile`, which sets up ROS Noetic with 
 
 1. Navigate to the repository root:
    ```bash
-   cd ~/Intellection/local/ros/toolpath_turtle
+   cd ~/Path/To/toolpath_turtle
    ```
 
 2. Build the Docker image:
